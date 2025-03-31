@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - D&K Luxury{% endblock title %}
+
+{% block content %}
+    {# Remove Preloader if it's in base.html #}
+    {# Remove Header if it's included in base.html #}
+
+    {# Main content starts here #}
+        <!-- Page Header -->
+        <section class="bg-dk-pink bg-opacity-30 py-12 md:py-20 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">About D&K Luxury</h1>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">Crafting beauty with passion and precision.</p>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <!-- Image Placeholder -->
+                    <div class="md:w-1/2 reveal-on-scroll">
+                        <img src="https://via.placeholder.com/600x450/F9E1E6/808080?text=Founder/Studio+Photo" alt="Founder or Studio Space" class="w-full h-auto object-cover rounded-lg shadow-lg">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="md:w-1/2 reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <h2 class="text-3xl md:text-4xl font-serif mb-6">Our Story</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            D&K Luxury was born from a passion for enhancing natural beauty and providing a sanctuary for self-care. Founded by [Founder's Name - Placeholder], a certified lash and brow artist with [Number] years of experience, our studio is dedicated to offering meticulous, high-quality treatments in a serene and welcoming environment.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            We believe that beauty treatments should be a luxurious experience, tailored to each individual's unique features and desires. Our commitment is to use only the finest products and techniques to achieve stunning, lasting results.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Whether you're seeking captivating lash extensions, perfectly defined brows, or a moment of pure relaxation with our spa services, D&K Luxury is your trusted partner in beauty and wellness.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy/Expertise Section -->
+        <section class="py-16 md:py-24 bg-dk-offwhite">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                     <!-- Image Placeholder -->
+                     <div class="md:w-1/2 reveal-on-scroll">
+                        <img src="https://via.placeholder.com/600x450/FAF8F7/808080?text=Expertise/Detail+Shot" alt="Close up of work or tools" class="w-full h-auto object-cover rounded-lg shadow-lg">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="md:w-1/2 reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <h2 class="text-3xl md:text-4xl font-serif mb-6">Our Philosophy & Expertise</h2>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Our philosophy centers around precision, artistry, and client comfort. We stay at the forefront of industry advancements, continuously refining our skills and knowledge to provide the best possible service.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                            <li>Certified and experienced technicians</li>
+                            <li>Use of premium, hypoallergenic materials</li>
+                            <li>Personalized consultations for every client</li>
+                            <li>Strict hygiene and safety protocols</li>
+                            <li>Commitment to natural-looking, beautiful results</li>
+                        </ul>
+                        <p class="text-gray-600 leading-relaxed">
+                            We are dedicated to creating a space where you feel valued, understood, and leave feeling more confident and beautiful.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {# Remove Footer if it's included in base.html #}
+{% endblock content %}

@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Services - D&K Luxury{% endblock title %}
+
+{% block content %}
+    {# Remove Preloader if it's in base.html #}
+    {# Remove Header if it's included in base.html #}
+
+    {# Main content starts here #}
+        <!-- Page Header -->
+        <section class="bg-dk-pink bg-opacity-30 py-12 md:py-20 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">Our Services</h1>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">Indulge in our expertly curated beauty and wellness treatments.</p>
+            </div>
+        </section>
+
+        <!-- Lash Extensions Section -->
+        <section id="lashes" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-serif text-center mb-12 md:mb-16 reveal-on-scroll">Lash Extensions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                    <!-- Service Item: Classic Lashes -->
+                    <div class="bg-dk-offwhite p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll">
+                        <img src="https://via.placeholder.com/400x300/FADADD/808080?text=Classic+Lashes" alt="Classic Lashes" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Classic Lashes</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">Subtle enhancement adding length and curl for a natural, mascara-like effect. One extension per natural lash.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20Classic%20Lashes%20service."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Classic Lashes
+                        </a>
+                    </div>
+                    <!-- Service Item: Volume Lashes -->
+                    <div class="bg-dk-offwhite p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <img src="https://via.placeholder.com/400x300/FADADD/808080?text=Volume+Lashes" alt="Volume Lashes" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Volume Lashes</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">Creates a fuller, fluffier look using multiple lightweight extensions applied to each natural lash in a fan shape.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20Volume%20Lashes%20service."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Volume Lashes
+                        </a>
+                    </div>
+                    <!-- Service Item: Hybrid Lashes -->
+                    <div class="bg-dk-offwhite p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <img src="https://via.placeholder.com/400x300/FADADD/808080?text=Hybrid+Lashes" alt="Hybrid Lashes" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Hybrid Lashes</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">A beautiful blend of Classic and Volume techniques, offering textured fullness that's not overly dramatic.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20Hybrid%20Lashes%20service."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Hybrid Lashes
+                        </a>
+                    </div>
+                     <!-- Service Item: Lash Lift -->
+                     <div class="bg-dk-offwhite p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll" style="transition-delay: 0.3s;">
+                        <img src="https://via.placeholder.com/400x300/FADADD/808080?text=Lash+Lift" alt="Lash Lift" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Lash Lift & Tint</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">Enhance your natural lashes by lifting and curling them from the root, often paired with a tint for darker definition.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20Lash%20Lift%20service."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Lash Lift
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Microblading & Brows Section -->
+        <section id="brows" class="py-16 md:py-24 bg-dk-offwhite">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-serif text-center mb-12 md:mb-16 reveal-on-scroll">Microblading & Brows</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                    <!-- Service Item: Microblading -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll">
+                        <img src="https://via.placeholder.com/400x300/F9E1E6/808080?text=Microblading" alt="Microblading" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Microblading</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">Semi-permanent technique creating hyper-realistic hair strokes to fill in sparse brows or create a new shape.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20a%20Microblading%20session."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Microblading
+                        </a>
+                    </div>
+                    <!-- Service Item: Ombre Brows -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <img src="https://via.placeholder.com/400x300/F9E1E6/808080?text=Ombre+Brows" alt="Ombre Brows" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Ombre Powder Brows</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">Creates a soft, powdered makeup look that's lighter at the front and gradually darkens towards the tail.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20Ombre%20Powder%20Brows."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Ombre Brows
+                        </a>
+                    </div>
+                    <!-- Service Item: Brow Lamination -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <img src="https://via.placeholder.com/400x300/F9E1E6/808080?text=Brow+Lamination" alt="Brow Lamination" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Brow Lamination</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">A treatment that straightens and lifts brow hairs, creating a fuller, feathery, and perfectly groomed look.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20Brow%20Lamination."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Brow Lamination
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spa Treatments Section -->
+        <section id="spa" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-serif text-center mb-12 md:mb-16 reveal-on-scroll">Spa Treatments</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                    <!-- Service Item: Signature Facial -->
+                    <div class="bg-dk-offwhite p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll">
+                        <img src="https://via.placeholder.com/400x300/FAF8F7/808080?text=Signature+Facial" alt="Signature Facial" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Signature Facial</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">A customized facial treatment designed to address your specific skin concerns, leaving you refreshed and glowing.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20Signature%20Facial."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Signature Facial
+                        </a>
+                    </div>
+                    <!-- Service Item: Relaxing Massage -->
+                    <div class="bg-dk-offwhite p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <img src="https://via.placeholder.com/400x300/FAF8F7/808080?text=Relaxing+Massage" alt="Relaxing Massage" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Relaxing Massage</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">Unwind and release tension with a soothing massage tailored to your needs, promoting relaxation and well-being.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20a%20Relaxing%20Massage."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Relaxing Massage
+                        </a>
+                    </div>
+                    <!-- Add more spa services as needed -->
+                     <div class="bg-dk-offwhite p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <img src="https://via.placeholder.com/400x300/FAF8F7/808080?text=Body+Treatment" alt="Body Treatment" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold font-serif text-gray-800 mb-2">Nourishing Body Wrap</h3>
+                        <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">Hydrate and revitalize your skin with a luxurious body wrap treatment, leaving your skin soft and supple.</p>
+                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20a%20Body%20Wrap."
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium">
+                            Book Body Wrap
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {# Remove Footer if it's included in base.html #}
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% load static %}
+<!-- Header -->
+<header class="bg-dk-offwhite sticky top-0 z-50 shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        {# Use url tag for home page link, assuming 'home' is the name in pages/urls.py #}
+        <a href="{% url 'pages:home' %}" class="text-2xl font-bold font-serif text-dk-gold hover:opacity-80 transition-opacity">
+            D&K Luxury
+        </a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-6 items-center">
+            {# Use namespaced url tags #}
+            <a href="{% url 'pages:home' %}" class="text-gray-700 hover:text-dk-pink transition-colors {% if request.resolver_match.view_name == 'pages:home' %}font-medium text-dk-pink{% endif %}">Home</a>
+            <a href="{% url 'services:service_list' %}" class="text-gray-700 hover:text-dk-pink transition-colors {% if request.resolver_match.app_name == 'services' %}font-medium text-dk-pink{% endif %}">Services</a>
+            <a href="{% url 'services:gallery' %}" class="text-gray-700 hover:text-dk-pink transition-colors {% if request.resolver_match.view_name == 'services:gallery' %}font-medium text-dk-pink{% endif %}">Gallery</a>
+            <a href="{% url 'pages:about' %}" class="text-gray-700 hover:text-dk-pink transition-colors {% if request.resolver_match.view_name == 'pages:about' %}font-medium text-dk-pink{% endif %}">About</a>
+            <a href="{% url 'contact:contact_form' %}" class="text-gray-700 hover:text-dk-pink transition-colors {% if request.resolver_match.view_name == 'contact:contact_form' %}font-medium text-dk-pink{% endif %}">Contact</a>
+            <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" class="bg-dk-gold text-white py-2 px-5 rounded hover:bg-opacity-90 transition-colors text-sm font-medium">Book Now</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-gray-700 focus:outline-none" aria-label="Toggle mobile menu" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </nav>
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-full left-0 w-full">
+        <a href="{% url 'pages:home' %}" class="block px-6 py-3 text-gray-700 hover:bg-dk-pink hover:text-white transition-colors {% if request.resolver_match.view_name == 'pages:home' %}font-medium bg-dk-pink text-white{% endif %}">Home</a>
+        <a href="{% url 'services:service_list' %}" class="block px-6 py-3 text-gray-700 hover:bg-dk-pink hover:text-white transition-colors {% if request.resolver_match.app_name == 'services' %}font-medium bg-dk-pink text-white{% endif %}">Services</a>
+        <a href="{% url 'services:gallery' %}" class="block px-6 py-3 text-gray-700 hover:bg-dk-pink hover:text-white transition-colors {% if request.resolver_match.view_name == 'services:gallery' %}font-medium bg-dk-pink text-white{% endif %}">Gallery</a>
+        <a href="{% url 'pages:about' %}" class="block px-6 py-3 text-gray-700 hover:bg-dk-pink hover:text-white transition-colors {% if request.resolver_match.view_name == 'pages:about' %}font-medium bg-dk-pink text-white{% endif %}">About</a>
+        <a href="{% url 'contact:contact_form' %}" class="block px-6 py-3 text-gray-700 hover:bg-dk-pink hover:text-white transition-colors {% if request.resolver_match.view_name == 'contact:contact_form' %}font-medium bg-dk-pink text-white{% endif %}">Contact</a>
+        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" class="block px-6 py-3 bg-dk-gold text-white text-center font-medium hover:bg-opacity-90 transition-colors">Book Now</a>
+    </div>
+</header>

@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - D&K Luxury{% endblock title %}
+
+{% block content %}
+    {# Remove Preloader if it's in base.html #}
+    {# Remove Header if it's included in base.html #}
+
+    {# Main content starts here #}
+        <!-- Page Header -->
+        <section class="bg-dk-pink bg-opacity-30 py-12 md:py-20 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">Contact Us</h1>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">We'd love to hear from you. Reach out to schedule your luxury experience.</p>
+            </div>
+        </section>
+
+        <!-- Contact Details & Form Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+
+                    <!-- Contact Info -->
+                    <div class="lg:w-1/2 reveal-on-scroll">
+                        <h2 class="text-3xl font-serif mb-6">Get In Touch</h2>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            For bookings and inquiries, the quickest way to reach us is via WhatsApp. You can also connect with us on Instagram or use the contact form below.
+                        </p>
+
+                        <div class="space-y-6">
+                            <!-- WhatsApp -->
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-dk-gold mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.005 4.91A9.81 9.81 0 0 0 12.002 2C6.5 2 2 6.5 2 12a9.99 9.99 0 0 0 4.91 8.995l-1.47 4.853 5.003-1.44A9.94 9.94 0 0 0 12.002 24c5.5 0 10-4.5 10-10a9.81 9.81 0 0 0-2.997-7.09zm-7.003 15.87a8.23 8.23 0 0 1-4.26-1.2l-.3-.18-3.15.9.92-3.05-.2-.32a8.28 8.28 0 0 1-1.28-4.38c0-4.54 3.7-8.24 8.24-8.24a8.18 8.18 0 0 1 5.83 2.41 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.55.12-.64.8-.79.97c-.14.17-.29.19-.55.06s-1.08-.39-2.05-1.26c-.76-.68-1.26-1.53-1.41-1.8-.14-.27-.01-.42.11-.54.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.55-1.32-.76-1.8c-.2-.48-.4-.42-.55-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.37 1 2.54.12.17 1.75 2.67 4.24 3.74.59.25 1.05.4 1.41.51.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18s-.22-.14-.48-.26z"/></svg>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-1">WhatsApp (Preferred)</h3>
+                                    <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" class="text-dk-gold hover:underline break-all">
+                                        +1 234 567 890 (Click to Chat)
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Instagram -->
+                            <div class="flex items-start gap-4">
+                               <svg class="w-6 h-6 text-dk-gold mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c-4.068 0-4.555.018-6.15.09c-1.595.072-2.685.33-3.638.717a4.924 4.924 0 0 0-1.77 1.153A4.924 4.924 0 0 0 .717 5.575C.33 6.528.072 7.618.09 9.213C.018 10.808 0 11.295 0 15.36c0 4.068.018 4.555.09 6.15c.072 1.595.33 2.685.717 3.638a4.924 4.924 0 0 0 1.153 1.77a4.924 4.924 0 0 0 1.77 1.153c.953.387 2.043.645 3.638.717c1.595.072 2.082.09 6.15.09c4.068 0 4.555-.018 6.15-.09c1.595-.072 2.685-.33 3.638-.717a4.924 4.924 0 0 0 1.77-1.153a4.924 4.924 0 0 0 1.153-1.77c.387-.953.645-2.043.717-3.638c.072-1.595.09-2.082.09-6.15c0-4.068-.018-4.555-.09-6.15c-.072-1.595-.33-2.685-.717-3.638a4.924 4.924 0 0 0-1.153-1.77a4.924 4.924 0 0 0-1.77-1.153c-.953-.387-2.043-.645-3.638-.717C16.87 2.018 16.383 2 12.315 2zm0 1.62c4.002 0 4.444.016 6.018.088c1.47.066 2.304.308 3.018.584a3.3 3.3 0 0 1 1.186.817a3.3 3.3 0 0 1 .817 1.186c.276.714.518 1.548.584 3.018c.072 1.574.088 2.016.088 6.018s-.016 4.444-.088 6.018c-.066 1.47-.308 2.304-.584 3.018a3.3 3.3 0 0 1-.817 1.186a3.3 3.3 0 0 1-1.186.817c-.714.276-1.548.518-3.018.584c-1.574.072-2.016.088-6.018.088s-4.444-.016-6.018-.088c-1.47-.066-2.304-.308-3.018-.584a3.3 3.3 0 0 1-1.186-.817a3.3 3.3 0 0 1-.817-1.186c-.276-.714-.518-1.548-.584-3.018C3.636 19.802 3.62 19.36 3.62 15.36s.016-4.444.088-6.018c.066-1.47.308-2.304.584-3.018a3.3 3.3 0 0 1 .817-1.186A3.3 3.3 0 0 1 5.315 4.3c.714-.276 1.548-.518 3.018-.584C9.898 3.636 10.34 3.62 14.34 3.62zM12.315 7.177a8.183 8.183 0 1 0 0 16.366a8.183 8.183 0 0 0 0-16.366zm0 1.62a6.563 6.563 0 1 1 0 13.126a6.563 6.563 0 0 1 0-13.126zM20.107 5.292a1.932 1.932 0 1 0 0 3.864a1.932 1.932 0 0 0 0-3.864z" clip-rule="evenodd" /></svg>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-1">Instagram</h3>
+                                    <a href="https://instagram.com/your_instagram" target="_blank" rel="noopener noreferrer" class="text-dk-gold hover:underline">
+                                        @your_instagram (Follow Us!)
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Address -->
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-dk-gold mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-1">Our Studio</h3>
+                                    <p class="text-gray-600">123 Luxury Lane, Beauty City, BC 12345</p>
+                                    <p class="text-gray-600">(By Appointment Only)</p>
+                                </div>
+                            </div>
+                             <!-- Opening Hours -->
+                             <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 text-dk-gold mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-1">Opening Hours</h3>
+                                    <p class="text-gray-600">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-600">Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:w-1/2 bg-dk-offwhite p-8 rounded-lg shadow-lg reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <h2 class="text-3xl font-serif mb-6">Send Us a Message</h2>
+                        {# Assuming the form is handled by the 'contact' view/URL #}
+                        <form action="{% url 'contact' %}" method="POST">
+                            {% csrf_token %} {# Add CSRF token for security #}
+                            {# Check if using Django forms or manual fields #}
+                            {# If using Django forms, render like: {{ form.as_p }} or loop through fields #}
+                            {# If manual fields: #}
+                            <div class="space-y-5">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                    {# Use form field if available: {{ form.name }} #}
+                                    <input type="text" name="name" id="name" required
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-dk-gold focus:border-dk-gold transition duration-150 ease-in-out">
+                                </div>
+                                <div>
+                                    <label for="contact_info" class="block text-sm font-medium text-gray-700 mb-1">Email or Phone</label>
+                                     {# Use form field if available: {{ form.contact_info }} #}
+                                    <input type="text" name="contact_info" id="contact_info" required
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-dk-gold focus:border-dk-gold transition duration-150 ease-in-out">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                     {# Use form field if available: {{ form.message }} #}
+                                    <textarea name="message" id="message" rows="4" required
+                                              class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-dk-gold focus:border-dk-gold transition duration-150 ease-in-out"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit"
+                                            class="w-full bg-dk-gold text-white py-3 px-6 rounded-md hover:bg-opacity-90 transition-colors duration-300 font-medium text-lg">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="py-16 md:py-24 bg-dk-offwhite">
+            <div class="container mx-auto px-6 reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-serif text-center mb-12">Find Us</h2>
+                <!-- Map Placeholder - Replace with actual map embed code -->
+                <div class="aspect-w-16 aspect-h-9 bg-gray-300 rounded-lg shadow-md flex items-center justify-center text-gray-500">
+                    <p>(Map Placeholder - Embed Google Maps Here)</p>
+                    <!-- Example iframe structure (replace src) -->
+                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+                </div>
+            </div>
+        </section>
+
+    {# Remove Footer if it's included in base.html #}
+{% endblock content %}

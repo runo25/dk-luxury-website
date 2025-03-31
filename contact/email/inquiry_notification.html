@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Contact Inquiry</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.5; }
+        .container { padding: 20px; border: 1px solid #ddd; max-width: 600px; margin: 20px auto; }
+        h2 { color: #333; }
+        p { margin-bottom: 10px; }
+        strong { font-weight: bold; }
+        .message { background-color: #f9f9f9; padding: 15px; border-left: 3px solid #eee; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>New Contact Inquiry Received</h2>
+        <p>You have received a new message via the website contact form:</p>
+        <hr>
+        <p><strong>Name:</strong> {{ inquiry.name }}</p>
+        <p><strong>Email:</strong> <a href="mailto:{{ inquiry.email }}">{{ inquiry.email }}</a></p>
+        <p><strong>Phone:</strong> {{ inquiry.phone|default:"Not provided" }}</p>
+        <p><strong>Submitted At:</strong> {{ inquiry.submitted_at|date:"F j, Y, P" }}</p>
+        <hr>
+        <p><strong>Message:</strong></p>
+        <div class="message">
+            <p>{{ inquiry.message|linebreaksbr }}</p>
+        </div>
+        <hr>
+        <p><small>You can view and manage this inquiry in the <a href="{{ request.scheme }}://{{ request.get_host }}{% url 'admin:contact_contactinquiry_changelist' %}">Django Admin</a>.</small></p>
+    </div>
+</body>
+</html>

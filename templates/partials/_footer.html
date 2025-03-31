@@ -1,0 +1,53 @@
+{% load static %}
+<!-- Footer -->
+<footer class="bg-gray-800 text-gray-300 py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <!-- Brand -->
+            <div>
+                <h4 class="text-xl font-bold font-serif text-dk-gold mb-4">D&K Luxury</h4>
+                <p class="text-sm">Enhancing beauty, inspiring confidence.</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h5 class="font-semibold mb-4 text-white">Quick Links</h5>
+                <ul class="space-y-2 text-sm">
+                    {# Use namespaced url tags #}
+                    <li><a href="{% url 'pages:home' %}" class="hover:text-dk-pink transition-colors">Home</a></li>
+                    <li><a href="{% url 'services:service_list' %}" class="hover:text-dk-pink transition-colors">Services</a></li>
+                    <li><a href="{% url 'services:gallery' %}" class="hover:text-dk-pink transition-colors">Gallery</a></li>
+                    <li><a href="{% url 'pages:about' %}" class="hover:text-dk-pink transition-colors">About Us</a></li>
+                    <li><a href="{% url 'contact:contact_form' %}" class="hover:text-dk-pink transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Contact Info -->
+            <div>
+                <h5 class="font-semibold mb-4 text-white">Contact Us</h5>
+                <ul class="space-y-2 text-sm">
+                    {# Replace placeholders with actual contact info or template variables #}
+                    <li><a href="https://wa.me/+1234567890" target="_blank" rel="noopener noreferrer" class="hover:text-dk-pink transition-colors">WhatsApp: +1 234 567 890</a></li>
+                    <li><a href="https://instagram.com/your_instagram" target="_blank" rel="noopener noreferrer" class="hover:text-dk-pink transition-colors">Instagram</a></li>
+                    <li><p>123 Luxury Lane, Beauty City</p></li>
+                    <li><p>Mon - Sat: 9:00 AM - 6:00 PM</p></li>
+                </ul>
+            </div>
+            <!-- Social Links -->
+            <div>
+                <h5 class="font-semibold mb-4 text-white">Follow Us</h5>
+                <div class="flex space-x-4">
+                    {# Replace placeholders #}
+                    <a href="https://instagram.com/your_instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-300 hover:text-dk-pink transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c-4.068 0-4.555.018-6.15.09c-1.595.072-2.685.33-3.638.717a4.924 4.924 0 0 0-1.77 1.153A4.924 4.924 0 0 0 .717 5.575C.33 6.528.072 7.618.09 9.213C.018 10.808 0 11.295 0 15.36c0 4.068.018 4.555.09 6.15c.072 1.595.33 2.685.717 3.638a4.924 4.924 0 0 0 1.153 1.77a4.924 4.924 0 0 0 1.77 1.153c.953.387 2.043.645 3.638.717c1.595.072 2.082.09 6.15.09c4.068 0 4.555-.018 6.15-.09c1.595-.072 2.685-.33 3.638-.717a4.924 4.924 0 0 0 1.77-1.153a4.924 4.924 0 0 0 1.153-1.77c.387-.953.645-2.043.717-3.638c.072-1.595.09-2.082.09-6.15c0-4.068-.018-4.555-.09-6.15c-.072-1.595-.33-2.685-.717-3.638a4.924 4.924 0 0 0-1.153-1.77a4.924 4.924 0 0 0-1.77-1.153c-.953-.387-2.043-.645-3.638-.717C16.87 2.018 16.383 2 12.315 2zm0 1.62c4.002 0 4.444.016 6.018.088c1.47.066 2.304.308 3.018.584a3.3 3.3 0 0 1 1.186.817a3.3 3.3 0 0 1 .817 1.186c.276.714.518 1.548.584 3.018c.072 1.574.088 2.016.088 6.018s-.016 4.444-.088 6.018c-.066 1.47-.308 2.304-.584 3.018a3.3 3.3 0 0 1-.817 1.186a3.3 3.3 0 0 1-1.186.817c-.714.276-1.548.518-3.018.584c-1.574.072-2.016.088-6.018.088s-4.444-.016-6.018-.088c-1.47-.066-2.304-.308-3.018-.584a3.3 3.3 0 0 1-1.186-.817a3.3 3.3 0 0 1-.817-1.186c-.276-.714-.518-1.548-.584-3.018C3.636 19.802 3.62 19.36 3.62 15.36s.016-4.444.088-6.018c.066-1.47.308-2.304.584-3.018a3.3 3.3 0 0 1 .817-1.186A3.3 3.3 0 0 1 5.315 4.3c.714-.276 1.548-.518 3.018-.584C9.898 3.636 10.34 3.62 14.34 3.62zM12.315 7.177a8.183 8.183 0 1 0 0 16.366a8.183 8.183 0 0 0 0-16.366zm0 1.62a6.563 6.563 0 1 1 0 13.126a6.563 6.563 0 0 1 0-13.126zM20.107 5.292a1.932 1.932 0 1 0 0 3.864a1.932 1.932 0 0 0 0-3.864z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://wa.me/+1234567890" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="text-gray-300 hover:text-dk-pink transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.005 4.91A9.81 9.81 0 0 0 12.002 2C6.5 2 2 6.5 2 12a9.99 9.99 0 0 0 4.91 8.995l-1.47 4.853 5.003-1.44A9.94 9.94 0 0 0 12.002 24c5.5 0 10-4.5 10-10a9.81 9.81 0 0 0-2.997-7.09zm-7.003 15.87a8.23 8.23 0 0 1-4.26-1.2l-.3-.18-3.15.9.92-3.05-.2-.32a8.28 8.28 0 0 1-1.28-4.38c0-4.54 3.7-8.24 8.24-8.24a8.18 8.18 0 0 1 5.83 2.41 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.55.12-.64.8-.79.97c-.14.17-.29.19-.55.06s-1.08-.39-2.05-1.26c-.76-.68-1.26-1.53-1.41-1.8-.14-.27-.01-.42.11-.54.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.55-1.32-.76-1.8c-.2-.48-.4-.42-.55-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.37 1 2.54.12.17 1.75 2.67 4.24 3.74.59.25 1.05.4 1.41.51.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18s-.22-.14-.48-.26z"/></svg>
+                    </a>
+                    <!-- Add other social links as needed -->
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 pt-8 mt-8 text-center text-sm">
+            <p>&copy; <span id="current-year"></span> D&K Luxury. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>

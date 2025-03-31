@@ -1,0 +1,44 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}D&K Luxury{% endblock title %}</title> {# Default title, can be overridden #}
+
+    {# Link to your compiled Tailwind CSS file #}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> {# Updated path #}
+
+    {# Add Google Fonts Link #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    {# Add any other global CSS links here #}
+    {# Example: <link href="https://fonts.googleapis.com/css2?family=..." rel="stylesheet"> #}
+
+{% block extra_head %}{% endblock extra_head %} {# Placeholder for page-specific head elements #}
+</head>
+<body class="bg-dk-offwhite font-sans text-gray-700"> {# Use intended base styles #}
+
+    {# Include Header Partial (Create templates/partials/_header.html with your header code) #}
+    {% include 'partials/_header.html' %}
+
+    <main>
+        {# Main content block for individual pages #}
+        {% block content %}
+        {# Page-specific content goes here #}
+        {% endblock content %}
+    </main>
+
+    {# Include Footer Partial (Create templates/partials/_footer.html with your footer code) #}
+    {% include 'partials/_footer.html' %}
+
+    {# Global JavaScript files #}
+    <script src="{% static 'js/script.js' %}"></script> {# Updated path #}
+    {# Add gallery specific JS here if needed, or keep in script.js #}
+
+
+    {% block extra_scripts %}{% endblock extra_scripts %} {# Placeholder for page-specific scripts #}
+
+</body>
+</html>

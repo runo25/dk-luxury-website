@@ -1,0 +1,24 @@
+# Python/Django
+*.pyc
+__pycache__/
+myenv/  # Or whatever your virtual environment folder is called
+db.sqlite3 # If using SQLite (add later if needed)
+*.log
+.env # For environment variables (API keys, secrets)
+
+# Node/Tailwind
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json # Often ignored, depends on team policy, maybe keep it
+/dist/ # Tailwind output - sometimes ignored, sometimes committed
+
+# OS / Editor specific
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
+
+# Media files (User uploads - typically not version controlled)
+/media/

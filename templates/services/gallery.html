@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gallery - D&K Luxury{% endblock title %}
+
+{% block extra_head %}
+    {# Page-specific styles for lightbox #}
+    <style>
+        /* Basic styles for potential lightbox */
+        .lightbox { display: none; position: fixed; z-index: 999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
+        .lightbox img { max-width: 90%; max-height: 80%; }
+        .lightbox .close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 30px; font-weight: bold; cursor: pointer; }
+    </style>
+{% endblock extra_head %}
+
+{% block content %}
+    {# Remove Preloader if it's in base.html #}
+    {# Remove Header if it's included in base.html #}
+
+    {# Main content starts here #}
+        <!-- Page Header -->
+        <section class="bg-dk-pink bg-opacity-30 py-12 md:py-20 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">Our Gallery</h1>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">A glimpse into the artistry and ambiance at D&K Luxury.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+
+                <!-- Filter Buttons (Optional - JS needed for functionality) -->
+                <div class="flex justify-center space-x-4 mb-12 reveal-on-scroll">
+                    <button class="gallery-filter-button active bg-dk-gold text-white py-2 px-5 rounded hover:bg-opacity-90 transition-colors text-sm font-medium" data-filter="all">All</button>
+                    <button class="gallery-filter-button bg-gray-200 text-gray-700 py-2 px-5 rounded hover:bg-gray-300 transition-colors text-sm font-medium" data-filter="lashes">Lashes</button>
+                    <button class="gallery-filter-button bg-gray-200 text-gray-700 py-2 px-5 rounded hover:bg-gray-300 transition-colors text-sm font-medium" data-filter="microblading">Microblading</button>
+                    <button class="gallery-filter-button bg-gray-200 text-gray-700 py-2 px-5 rounded hover:bg-gray-300 transition-colors text-sm font-medium" data-filter="spa">Spa Ambiance</button>
+                </div>
+
+                <!-- Image Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 gallery-grid">
+                    <!-- Item 1 (Lashes) -->
+                    <div class="gallery-item reveal-on-scroll" data-category="lashes">
+                        <a href="https://via.placeholder.com/600x600/FADADD/808080?text=Lash+Result+1" class="lightbox-trigger block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <img src="https://via.placeholder.com/600x600/FADADD/808080?text=Lash+Result+1" alt="Lash Extension Result 1" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                    <!-- Item 2 (Microblading) -->
+                    <div class="gallery-item reveal-on-scroll" data-category="microblading" style="transition-delay: 0.05s;">
+                        <a href="https://via.placeholder.com/600x600/F9E1E6/808080?text=Microblading+Result+1" class="lightbox-trigger block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <img src="https://via.placeholder.com/600x600/F9E1E6/808080?text=Microblading+Result+1" alt="Microblading Result 1" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                    <!-- Item 3 (Spa) -->
+                    <div class="gallery-item reveal-on-scroll" data-category="spa" style="transition-delay: 0.1s;">
+                        <a href="https://via.placeholder.com/600x600/FAF8F7/808080?text=Spa+Ambiance+1" class="lightbox-trigger block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <img src="https://via.placeholder.com/600x600/FAF8F7/808080?text=Spa+Ambiance+1" alt="Spa Ambiance 1" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                    <!-- Item 4 (Lashes) -->
+                    <div class="gallery-item reveal-on-scroll" data-category="lashes" style="transition-delay: 0.15s;">
+                        <a href="https://via.placeholder.com/600x600/FADADD/808080?text=Lash+Result+2" class="lightbox-trigger block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <img src="https://via.placeholder.com/600x600/FADADD/808080?text=Lash+Result+2" alt="Lash Extension Result 2" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                    <!-- Item 5 (Microblading) -->
+                    <div class="gallery-item reveal-on-scroll" data-category="microblading" style="transition-delay: 0.2s;">
+                        <a href="https://via.placeholder.com/600x600/F9E1E6/808080?text=Microblading+Result+2" class="lightbox-trigger block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <img src="https://via.placeholder.com/600x600/F9E1E6/808080?text=Microblading+Result+2" alt="Microblading Result 2" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                     <!-- Item 6 (Lashes) -->
+                     <div class="gallery-item reveal-on-scroll" data-category="lashes" style="transition-delay: 0.25s;">
+                        <a href="https://via.placeholder.com/600x600/FADADD/808080?text=Lash+Result+3" class="lightbox-trigger block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <img src="https://via.placeholder.com/600x600/FADADD/808080?text=Lash+Result+3" alt="Lash Extension Result 3" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                     <!-- Item 7 (Spa) -->
+                     <div class="gallery-item reveal-on-scroll" data-category="spa" style="transition-delay: 0.3s;">
+                        <a href="https://via.placeholder.com/600x600/FAF8F7/808080?text=Spa+Ambiance+2" class="lightbox-trigger block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <img src="https://via.placeholder.com/600x600/FAF8F7/808080?text=Spa+Ambiance+2" alt="Spa Ambiance 2" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                     <!-- Item 8 (Microblading) -->
+                     <div class="gallery-item reveal-on-scroll" data-category="microblading" style="transition-delay: 0.35s;">
+                        <a href="https://via.placeholder.com/600x600/F9E1E6/808080?text=Microblading+Result+3" class="lightbox-trigger block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <img src="https://via.placeholder.com/600x600/F9E1E6/808080?text=Microblading+Result+3" alt="Microblading Result 3" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300">
+                        </a>
+                    </div>
+                    <!-- Add more gallery items as needed -->
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Structure (Hidden by default) -->
+        <div id="lightbox" class="lightbox">
+            <span class="close" id="close-lightbox">&times;</span>
+            <img id="lightbox-image" src="" alt="Lightbox Image">
+        </div>
+
+    {# Remove Footer if it's included in base.html #}
+{% endblock content %}
+
+{% block extra_scripts %}
+    {# Page-specific script for lightbox and filtering #}
+    <script>
+        // Basic Lightbox & Filter JS (can be expanded)
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const closeLightbox = document.getElementById('close-lightbox');
+            const imageTriggers = document.querySelectorAll('.lightbox-trigger');
+
+            if (lightbox && lightboxImage && closeLightbox && imageTriggers.length > 0) {
+                imageTriggers.forEach(trigger => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        lightboxImage.src = trigger.href;
+                        lightbox.style.display = 'flex'; // Use flex to center
+                    });
+                });
+
+                closeLightbox.addEventListener('click', () => {
+                    lightbox.style.display = 'none';
+                    lightboxImage.src = ''; // Clear src
+                });
+
+                // Close lightbox if clicking outside the image
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.style.display = 'none';
+                        lightboxImage.src = '';
+                    }
+                });
+            }
+
+            // Basic Filter Logic
+            const filterButtons = document.querySelectorAll('.gallery-filter-button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            if (filterButtons.length > 0 && galleryItems.length > 0) {
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const filter = button.getAttribute('data-filter');
+
+                        // Update active button style
+                        filterButtons.forEach(btn => btn.classList.remove('active', 'bg-dk-gold', 'text-white'));
+                        filterButtons.forEach(btn => btn.classList.add('bg-gray-200', 'text-gray-700'));
+                        button.classList.add('active', 'bg-dk-gold', 'text-white');
+                        button.classList.remove('bg-gray-200', 'text-gray-700');
+
+
+                        // Show/Hide items
+                        galleryItems.forEach(item => {
+                            const category = item.getAttribute('data-category');
+                            if (filter === 'all' || category === filter) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
+        });
+    </script>
+{% endblock extra_scripts %}

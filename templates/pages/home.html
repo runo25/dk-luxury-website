@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}D&K Luxury - Home{% endblock title %}
+
+{% block content %}
+    {# Remove Preloader if it's in base.html #}
+    {# Remove Header if it's included in base.html #}
+
+    {# Main content starts here #}
+        <!-- Hero Section -->
+        <section class="relative h-[70vh] md:h-[85vh] flex items-center justify-center text-center bg-gray-300 text-white">
+            <!-- Placeholder for background image/video -->
+            <div class="absolute inset-0 bg-black opacity-40 z-0"></div>
+            <div class="absolute inset-0 bg-cover bg-center z-[-1]" style="background-image: url('https://via.placeholder.com/1920x1080/cccccc/808080?text=Luxury+Spa+Background');"></div>
+
+            <div class="relative z-10 p-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-serif mb-4 leading-tight">Elevate Your Beauty</h1>
+                <p class="text-lg md:text-xl font-light mb-8 max-w-2xl mx-auto">Discover bespoke lash extensions, flawless microblading, and rejuvenating spa treatments at D&K Luxury.</p>
+                {# Use namespaced Django URL tag #}
+                <a href="{% url 'services:service_list' %}" class="bg-dk-gold text-white py-3 px-8 rounded hover:bg-opacity-90 transition-colors font-medium text-lg">
+                    Explore Our Services
+                </a>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="py-16 md:py-24 bg-dk-offwhite">
+            <div class="container mx-auto px-6 text-center max-w-3xl reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-serif mb-6">Welcome to D&K Luxury</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    At D&K Luxury, we believe in enhancing your natural beauty through meticulous artistry and personalized care. Our serene studio offers a tranquil escape where you can indulge in premier lash, brow, and spa services, tailored exclusively for you.
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Highlight Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-serif text-center mb-12 md:mb-16">Our Signature Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                    <!-- Lash Extensions -->
+                    <div class="text-center reveal-on-scroll">
+                        {# Assuming images might become dynamic later, keep placeholders for now #}
+                        {# Or use {% static 'path/to/image.jpg' %} if they are static assets #}
+                        <img src="https://via.placeholder.com/400x300/FADADD/808080?text=Lash+Extensions" alt="Lash Extensions" class="w-full h-64 object-cover rounded-lg shadow-md mb-6 hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-2xl font-serif mb-3">Lash Extensions</h3>
+                        <p class="text-gray-600 mb-4">Achieve stunning, natural-looking lashes with our expert application techniques.</p>
+                        <a href="{% url 'services:service_list' %}#lashes" class="text-dk-gold hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                    <!-- Microblading -->
+                    <div class="text-center reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <img src="https://via.placeholder.com/400x300/F9E1E6/808080?text=Microblading" alt="Microblading" class="w-full h-64 object-cover rounded-lg shadow-md mb-6 hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-2xl font-serif mb-3">Microblading & Brows</h3>
+                        <p class="text-gray-600 mb-4">Define your look with perfectly sculpted, natural-looking eyebrows.</p>
+                        <a href="{% url 'services:service_list' %}#brows" class="text-dk-gold hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                    <!-- Spa Treatments -->
+                    <div class="text-center reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <img src="https://via.placeholder.com/400x300/FAF8F7/808080?text=Spa+Treatments" alt="Spa Treatments" class="w-full h-64 object-cover rounded-lg shadow-md mb-6 hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-2xl font-serif mb-3">Spa Treatments</h3>
+                        <p class="text-gray-600 mb-4">Relax and rejuvenate with our curated selection of luxurious spa services.</p>
+                        <a href="{% url 'services:service_list' %}#spa" class="text-dk-gold hover:underline font-medium">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="py-16 md:py-24 bg-dk-pink bg-opacity-30">
+            <div class="container mx-auto px-6 text-center max-w-3xl reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-serif mb-8">What Our Clients Say</h2>
+                <blockquote class="text-xl italic text-gray-700 mb-6">
+                    "Absolutely obsessed with my lashes! D&K Luxury provides such a professional and relaxing experience. The results are always flawless. Highly recommend!"
+                </blockquote>
+                <p class="font-semibold text-gray-800">- Satisfied Client</p>
+            </div>
+        </section>
+
+    {# Remove Footer if it's included in base.html #}
+{% endblock content %}
