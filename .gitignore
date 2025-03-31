@@ -22,3 +22,4 @@ Thumbs.db
 
 # Media files (User uploads - typically not version controlled)
 /media/
+.vscode/settings.json

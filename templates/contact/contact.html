@@ -74,7 +74,7 @@
                     <div class="lg:w-1/2 bg-dk-offwhite p-8 rounded-lg shadow-lg reveal-on-scroll" style="transition-delay: 0.1s;">
                         <h2 class="text-3xl font-serif mb-6">Send Us a Message</h2>
                         {# Assuming the form is handled by the 'contact' view/URL #}
-                        <form action="{% url 'contact' %}" method="POST">
+                        <form action="{% url 'contact:contact_form' %}" method="POST">
                             {% csrf_token %} {# Add CSRF token for security #}
                             {# Check if using Django forms or manual fields #}
                             {# If using Django forms, render like: {{ form.as_p }} or loop through fields #}
