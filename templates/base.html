@@ -7,7 +7,7 @@
 
     {# Link to your compiled Tailwind CSS file #}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"> {# Updated path #}
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     {# Add Google Fonts Link #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,10 +35,11 @@
 
     {# Global JavaScript files #}
     <script src="{% static 'js/script.js' %}"></script> {# Updated path #}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     {# Add gallery specific JS here if needed, or keep in script.js #}
 
 
     {% block extra_scripts %}{% endblock extra_scripts %} {# Placeholder for page-specific scripts #}
-
+    
 </body>
 </html>
