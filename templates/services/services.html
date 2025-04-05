@@ -20,6 +20,22 @@
         </div>
     </section>
 
+    {# --- Sticky Category Navigation --- #}
+    {% if service_structure %}
+    <nav id="service-nav" class="sticky top-0 z-40 bg-white shadow-md py-3 transition-all duration-300">
+        {# Make container full width on mobile to allow scrolling, center content with flex #}
+        <div class="container mx-auto px-4 sm:px-6">
+            {# Use flex, allow wrapping (though whitespace-nowrap prevents it), enable horizontal scroll, hide scrollbar (optional) #}
+            <div class="flex items-center justify-start md:justify-center space-x-4 md:space-x-6 overflow-x-auto whitespace-nowrap pb-2 scrollbar-hide">
+            {% for top_level_data in service_structure %}
+                <a href="#{{ top_level_data.category.slug }}" class="service-nav-link text-gray-600 hover:text-dk-gold font-medium px-3 py-1 rounded transition-colors duration-200 flex-shrink-0"> {# Add flex-shrink-0 #}
+                    {{ top_level_data.category.name }}
+                </a>
+            {% endfor %}
+        </div>
+    </nav>
+    {% endif %}
+
     {# --- DYNAMIC SERVICE SECTIONS --- #}
     {% for top_level_data in service_structure %}
         {# Determine background based on loop counter or category properties #}
@@ -66,7 +82,7 @@
                                         {% endif %}
 
                                         {# --- UPDATED WHATSAPP LINK --- #}
-                                        <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20{{ service.name|urlencode }}%20service%20({{ service.display_price }})."
+                                        <a href="https://wa.me/+2349060761042?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20{{ service.name|urlencode }}%20service%20({{ service.display_price }})."
                                            target="_blank" rel="noopener noreferrer"
                                            class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium w-full text-center">
                                             Book {{ service.name }}
@@ -100,7 +116,7 @@
                                 {% if service.description %}
                                 <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">{{ service.description }}</p>
                                 {% endif %}
-                                <a href="https://wa.me/+1234567890?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20{{ service.name|urlencode }}%20service%20({{ service.display_price }})."
+                                <a href="https://wa.me/+2349060761042?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20{{ service.name|urlencode }}%20service%20({{ service.display_price }})."
                                    target="_blank" rel="noopener noreferrer"
                                    class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium w-full text-center">
                                     Book {{ service.name }}

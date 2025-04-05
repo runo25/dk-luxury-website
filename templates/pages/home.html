@@ -9,12 +9,21 @@
 
     {# Main content starts here #}
         <!-- Hero Section -->
-        <section class="relative h-[70vh] md:h-[85vh] flex items-center justify-center text-center bg-gray-300 text-white">
-            <!-- Placeholder for background image/video -->
+        <section id="hero-section" class="relative h-[70vh] md:h-[85vh] flex items-center justify-center text-center text-white overflow-hidden">
+            <!-- Slideshow Container -->
+            <div id="hero-slideshow" class="absolute inset-0 w-full h-full -z-10">
+                <!-- Individual Slides -->
+                <div class="hero-slide absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url({% static 'images/hero_slideshow/lash.webp' %});"></div>
+                <div class="hero-slide absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url({% static 'images/hero_slideshow/micro.webp' %});"></div>
+                <div class="hero-slide absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url({% static 'images/hero_slideshow/fecials.webp' %});"></div>
+                <div class="hero-slide absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url({% static 'images/hero_slideshow/pedi.webp' %});"></div>
+                <div class="hero-slide absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url({% static 'images/hero_slideshow/brows.webp' %});"></div>
+                <div class="hero-slide absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url({% static 'images/hero_slideshow/teeth.webp' %});"></div>
+                {# Add more slides as needed #}
+            </div>
 
-            <div class="absolute inset-0 bg-cover bg-center -z-10" style="background-image: url({% static 'images/hero_slideshow/lash.webp' %});"></div>
+            <!-- Overlay -->
             <div class="absolute inset-0 bg-black opacity-60 z-0"></div>
-
             {# Optional: Add a gradient overlay for better text visibility #}
             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50 z-0"></div>
 
@@ -46,23 +55,30 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                     <!-- Lash Extensions -->
                     <div class="text-center reveal-on-scroll">
-                        {# Assuming images might become dynamic later, keep placeholders for now #}
-                        {# Or use {% static 'path/to/image.jpg' %} if they are static assets #}
-                        <img src="{% static 'images/hero_slideshow/lash.webp' %}" alt="Lash Extensions" class="w-full h-64 object-cover rounded-lg shadow-md mb-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="relative rounded-lg shadow-md mb-6 overflow-hidden group">
+                            <img src="{% static 'images/hero_slideshow/lash.webp' %}" alt="Lash Extensions" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-opacity duration-300"></div>
+                        </div>
                         <h3 class="text-2xl font-serif mb-3">Lash Extensions</h3>
                         <p class="text-gray-600 mb-4">Achieve stunning, natural-looking lashes with our expert application techniques.</p>
                         <a href="{% url 'services:service_list' %}#lashes" class="text-dk-gold hover:underline font-medium">Learn More &rarr;</a>
                     </div>
                     <!-- Microblading -->
                     <div class="text-center reveal-on-scroll" style="transition-delay: 0.1s;">
-                        <img src="{% static 'images/hero_slideshow/micro.webp' %}" alt="Microblading" class="w-full h-64 object-cover rounded-lg shadow-md mb-6 hover:shadow-xl transition-shadow duration-300">
+                         <div class="relative rounded-lg shadow-md mb-6 overflow-hidden group">
+                            <img src="{% static 'images/hero_slideshow/micro.webp' %}" alt="Microblading" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-opacity duration-300"></div>
+                        </div>
                         <h3 class="text-2xl font-serif mb-3">Microblading & Brows</h3>
                         <p class="text-gray-600 mb-4">Define your look with perfectly sculpted, natural-looking eyebrows.</p>
                         <a href="{% url 'services:service_list' %}#brows" class="text-dk-gold hover:underline font-medium">Learn More &rarr;</a>
                     </div>
                     <!-- Spa Treatments -->
                     <div class="text-center reveal-on-scroll" style="transition-delay: 0.2s;">
-                        <img src="{% static 'images/hero_slideshow/fecials.webp' %}" alt="Spa Treatments" class="w-full h-64 object-cover rounded-lg shadow-md mb-6 hover:shadow-xl transition-shadow duration-300">
+                        <div class="relative rounded-lg shadow-md mb-6 overflow-hidden group">
+                            <img src="{% static 'images/hero_slideshow/fecials.webp' %}" alt="Spa Treatments" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-opacity duration-300"></div>
+                        </div>
                         <h3 class="text-2xl font-serif mb-3">Spa Treatments</h3>
                         <p class="text-gray-600 mb-4">Relax and rejuvenate with our curated selection of luxurious spa services.</p>
                         <a href="{% url 'services:service_list' %}#spa" class="text-dk-gold hover:underline font-medium">Learn More &rarr;</a>
