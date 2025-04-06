@@ -10,23 +10,38 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os # Make sure 'import os' or 'from pathlib import Path' is at the top
-
 from pathlib import Path
+from dotenv import load_dotenv # Import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load .env file variables into environment (only does something if .env exists)
+load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!f_k=urf5wfqh)2g(3sny2t5j@tms#xrm!(tzfsa09u=ufonvz'
+# Get SECRET_KEY from environment variable, raise error if not found in production
+SECRET_KEY = os.getenv('SECRET_KEY')
+if not SECRET_KEY:
+    # Provide a default *only* if you absolutely need one for some reason,
+    # but it's better to ensure it's set in the environment.
+    # In production, your deployment platform *must* provide this.
+    # For local, .env provides it.
+    raise ValueError("No SECRET_KEY set for Django application")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Get DEBUG from environment, default to False if not set. Convert string 'True' to boolean True.
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+# Get ALLOWED_HOSTS from environment as a comma-separated string, then split it.
+# Default to empty list if not set.
+allowed_hosts_str = os.getenv('ALLOWED_HOSTS', '')
+ALLOWED_HOSTS = [host.strip() for host in allowed_hosts_str.split(',') if host.strip()]
+# Important: For PythonAnywhere, you'll set this directly there
 
 
 # Application definition
@@ -146,18 +161,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Email Configuration (Example using Gmail SMTP - replace with your provider's details)
-# IMPORTANT: For production, use environment variables or a secrets management tool
-#            instead of hardcoding credentials directly in settings.py.
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # e.g., 'smtp.gmail.com' or 'smtp.sendgrid.net'
-EMAIL_PORT = 587  # Standard port for TLS
-EMAIL_USE_TLS = True  # Use TLS encryption
-EMAIL_HOST_USER = 'your_email@gmail.com'  # Replace with your actual email address used for sending
-EMAIL_HOST_PASSWORD = 'your_app_password'  # Replace with your app-specific password (for Gmail) or API key
-
-# Default email address to use for various automated correspondence from the site manager(s)
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# Email Configuration using environment variables
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587)) # Convert port to integer
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True' # Convert to boolean
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER') # Get from env
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD') # Get from env
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER # Use the host user as default sender
 
 # Email address that receives contact form submissions
-CONTACT_FORM_RECIPIENT_EMAIL = 'owner@example.com' # Replace with the actual owner's email
+CONTACT_FORM_RECIPIENT_EMAIL = os.getenv('CONTACT_FORM_RECIPIENT_EMAIL') # Get from env
