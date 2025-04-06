@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %} {# Optional: Load i18n if you use it for translations #}
 
-{% block title %}Our Services - D&K Luxury{% endblock title %}
+{% block title %}Our Services - K Luxe Spa{% endblock title %}
 
 {% block content %}
     {# Preloader & Header are assumed to be in base.html #}
@@ -82,7 +82,7 @@
                                         {% endif %}
 
                                         {# --- UPDATED WHATSAPP LINK --- #}
-                                        <a href="https://wa.me/+2349060761042?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20{{ service.name|urlencode }}%20service%20({{ service.display_price }})."
+                                        <a href="https://wa.me/+2349060761042?text=Hi%20K%20Luxe%20Spa,%20I'm%20interested%20in%20booking%20the%20{{ service.name|urlencode }}%20service%20({{ service.display_price }})."
                                            target="_blank" rel="noopener noreferrer"
                                            class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium w-full text-center">
                                             Book {{ service.name }}
@@ -116,7 +116,7 @@
                                 {% if service.description %}
                                 <p class="text-gray-600 font-sans mb-4 text-sm leading-relaxed">{{ service.description }}</p>
                                 {% endif %}
-                                <a href="https://wa.me/+2349060761042?text=Hi%20D%26K%20Luxury,%20I'm%20interested%20in%20booking%20the%20{{ service.name|urlencode }}%20service%20({{ service.display_price }})."
+                                <a href="https://wa.me/+2349060761042?text=Hi%20K%20Luxe%20Spa,%20I'm%20interested%20in%20booking%20the%20{{ service.name|urlencode }}%20service%20({{ service.display_price }})."
                                    target="_blank" rel="noopener noreferrer"
                                    class="inline-block bg-dk-gold text-white py-2 px-4 rounded hover:bg-opacity-90 transition-colors duration-300 font-sans text-sm font-medium w-full text-center">
                                     Book {{ service.name }}
