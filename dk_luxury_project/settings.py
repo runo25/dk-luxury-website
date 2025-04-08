@@ -21,19 +21,14 @@ if load_dotenv:
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 if not SECRET_KEY:
-    # In production, this MUST be set in the environment (e.g., WSGI file)
-    # For local dev, it MUST be in .env
     raise ValueError("No SECRET_KEY set for Django application. Set it in your environment or .env file.")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Defaults to False if not set. Converts string 'True' to boolean True.
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-# Get ALLOWED_HOSTS from environment as a comma-separated string, then split it.
-# Defaults to empty list if not set. PythonAnywhere domain MUST be in the env var on PA.
+# Get ALLOWED_HOSTS from environment
 allowed_hosts_str = os.getenv('ALLOWED_HOSTS', '')
 ALLOWED_HOSTS = [host.strip() for host in allowed_hosts_str.split(',') if host.strip()]
-# If running locally and DEBUG is True, add common local hosts automatically
 if DEBUG and not ALLOWED_HOSTS:
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
@@ -41,10 +36,14 @@ if DEBUG and not ALLOWED_HOSTS:
 # Application definition
 INSTALLED_APPS = [
     # My apps
-    'services.apps.ServicesConfig', # Or just 'services'
-    'contact.apps.ContactConfig',   # Or just 'contact'
-    'pages.apps.PagesConfig',       # Or just 'pages'
+    'services.apps.ServicesConfig',
+    'contact.apps.ContactConfig',
+    'pages.apps.PagesConfig',
 
+    # External Apps
+    'storages', # Add django-storages
+
+    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,9 +54,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # Add WhiteNoise middleware HERE, after SecurityMiddleware and before SessionMiddleware
-    # if you decide to use WhiteNoise later for static files (good practice, but PA handles it too)
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -71,7 +67,7 @@ ROOT_URLCONF = 'dk_luxury_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'], # Using Pathlib
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,8 +84,6 @@ WSGI_APPLICATION = 'dk_luxury_project.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-# Keeping SQLite simple for now. For other DBs use dj-database-url and DATABASE_URL env var.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -99,7 +93,6 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [ # ... (keep your validators) ...
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -109,51 +102,63 @@ AUTH_PASSWORD_VALIDATORS = [ # ... (keep your validators) ...
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images not uploaded by users)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
+# Static files (CSS, JavaScript, Images NOT uploaded by users)
+# Configuration remains the same for static files served by PA or WhiteNoise
 STATIC_URL = '/static/'
-# Directory where collectstatic gathers files for production
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-# Directories where Django looks for static files initially
 STATICFILES_DIRS = [ BASE_DIR / 'static' ]
-# Optional: If using WhiteNoise for static file serving in production (besides Django dev server)
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-# Media files (User-uploaded content)
-# https://docs.djangoproject.com/en/5.1/topics/files/
-MEDIA_URL = '/media/'
-# Directory where user uploads are stored on the filesystem
-MEDIA_ROOT = BASE_DIR / 'mediafiles'
+# --- Media files Configuration for Cloudflare R2 ---
+# ----------------------------------------------------
+
+# Use django-storages S3 compatible backend for default file storage (media)
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' # Correct backend path
+
+# Define required AWS/S3 settings, reading values from environment variables
+CLOUDFLARE_ACCOUNT_ID = os.getenv('CLOUDFLARE_ACCOUNT_ID')
+AWS_ACCESS_KEY_ID = os.getenv('CLOUDFLARE_R2_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('CLOUDFLARE_R2_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.getenv('CLOUDFLARE_R2_BUCKET_NAME')
+
+if not CLOUDFLARE_ACCOUNT_ID:
+    print("Warning: CLOUDFLARE_ACCOUNT_ID environment variable not set. R2 endpoint cannot be constructed.")
+AWS_S3_ENDPOINT_URL = f'https://{CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com' if CLOUDFLARE_ACCOUNT_ID else None
+
+AWS_S3_REGION_NAME = 'auto' # R2 uses 'auto'
+AWS_S3_SIGNATURE_VERSION = 's3v4' # Use signature version 4
+AWS_DEFAULT_ACL = 'public-read' # Make files public by default (adjust if your bucket is private)
+AWS_S3_FILE_OVERWRITE = False # Don't overwrite files with the same name by default
+AWS_QUERYSTRING_AUTH = False # Don't add auth parameters to generated URLs (needed for public-read)
+# Optional: Custom domain if you set one up in Cloudflare R2
+AWS_S3_CUSTOM_DOMAIN = os.getenv('CLOUDFLARE_R2_CUSTOM_DOMAIN', None)
+
+# --- OLD Media settings (Commented out or removed as they are handled by DEFAULT_FILE_STORAGE) ---
+MEDIA_URL = '/media/' # This might still be useful depending on URL generation, but often the full R2 URL is used.
+# MEDIA_ROOT = BASE_DIR / 'mediafiles' # Django no longer saves media files here directly.
+
+# ----------------------------------------------------
+# --- End Media Configuration ---
 
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Email Configuration using environment variables
-# Defaults are provided for common scenarios but should be set in the environment for production
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587)) # Convert port to integer
-EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True' # Convert to boolean
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER') # Must be set in environment
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD') # Must be set in environment
-
-# Default email address to use for various automated correspondence (e.g., error reports)
-# Uses the sending user by default, or specify another via DEFAULT_FROM_EMAIL env var
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
-
-# Email address that receives contact form submissions
-CONTACT_FORM_RECIPIENT_EMAIL = os.getenv('CONTACT_FORM_RECIPIENT_EMAIL') # Must be set in environment
+CONTACT_FORM_RECIPIENT_EMAIL = os.getenv('CONTACT_FORM_RECIPIENT_EMAIL')
 if not CONTACT_FORM_RECIPIENT_EMAIL:
-     # You might want to raise an error or log a warning if this is critical
      print("Warning: CONTACT_FORM_RECIPIENT_EMAIL environment variable is not set.")
