@@ -27,7 +27,7 @@ urlpatterns = [
 ]
 
 # Add this block for serving media files during development ONLY
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     # Optional: Add static file serving if DEBUG is True and you aren't using Whitenoise yet
     # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # Use STATICFILES_DIRS instead usually

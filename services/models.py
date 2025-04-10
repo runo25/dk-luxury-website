@@ -4,6 +4,8 @@ from django.utils.text import slugify
 from django.urls import reverse
 from django.core.validators import MinValueValidator
 import math # For display_price formatting
+from storages.backends.s3boto3 import S3Boto3Storage # Import directly
+
 
 class ServiceCategory(models.Model):
     """Represents a category or sub-category of services."""
@@ -53,7 +55,13 @@ class Service(models.Model):
     name = models.CharField(max_length=150, help_text="Specific name of the service (e.g., 'Microblading', 'Classic Refill').")
     slug = models.SlugField(max_length=160, blank=True, help_text="Unique URL-friendly identifier for this service (within its category). Leave blank to auto-generate.")
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='services/', blank=True, null=True, help_text="Optional image for the service.")
+    image = models.ImageField(
+        upload_to='services/',
+        blank=True,
+        null=True,
+        storage=S3Boto3Storage(), # <--- FORCE the storage here
+        help_text="Optional image for the service."
+    )
     duration = models.CharField(max_length=50, blank=True, null=True, help_text="e.g., '1 hour', '30 mins'")
     # --- PRICE CHANGE ---
     price = models.DecimalField(
@@ -106,7 +114,12 @@ class Service(models.Model):
 class GalleryImage(models.Model):
     """Represents an image in the gallery, optionally linked to a service category."""
     category = models.ForeignKey(ServiceCategory, related_name='gallery_images', on_delete=models.SET_NULL, blank=True, null=True, help_text="Optional: Link image to a service category for filtering.")
-    image = models.ImageField(upload_to='gallery/', help_text="The image file.")
+
+    image = models.ImageField(
+         upload_to='gallery/',
+         storage=S3Boto3Storage(), # <--- FORCE the storage here
+         help_text="The image file."
+     )
     caption = models.CharField(max_length=255, blank=True, help_text="Optional description for the image.")
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
